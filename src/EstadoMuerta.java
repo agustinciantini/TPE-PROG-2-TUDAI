@@ -1,5 +1,4 @@
 
-
 public class EstadoMuerta implements EstadoCelda {
     protected final String REPRESENTACION_MUERTA = ".";
 

@@ -1,5 +1,3 @@
-
-
 public interface Condicion {
     boolean cumple(Celda c);
 }

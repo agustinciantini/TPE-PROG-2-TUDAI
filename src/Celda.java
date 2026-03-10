@@ -1,5 +1,3 @@
-
-
 public class Celda {
     private EstadoCelda estadoActual;
     private EstadoCelda estadoSiguiente;
