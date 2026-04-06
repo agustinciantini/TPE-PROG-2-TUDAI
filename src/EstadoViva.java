@@ -1,29 +1,26 @@
 
+
 public class EstadoViva implements EstadoCelda {
-    protected final String REPRESENTACION_VIVA = "O";
-    protected final double PROBABILIDAD_ENFERMAR = 0.25;
 
-    @Override
-    public boolean estaViva() {
+    public boolean estaViva(){
         return true;
-    }
+    };
 
     @Override
-    public EstadoCelda proximoEstado(int vecinosVivos) {
-        // Regla de Reproduccion: Una celda muerta con exactamente 3 vecinos vivos 
-        // se convierte en una celda "Viva" en la siguiente generacion.
-        if (Math.random() < PROBABILIDAD_ENFERMAR) {
-            return new EstadoEnferma();
+    public EstadoCelda comprobarEstado(int vecinosVivos) {
+        if (Math.random() < 0.25) {
+            return new EstadoEnferma(); 
         }
-        
-        if (vecinosVivos < 2 || vecinosVivos > 3) {
-            return new EstadoMuerta();
+        if (vecinosVivos < 2) {
+            return new EstadoMuerta(); // Muere por soledad
+        } else if (vecinosVivos == 2 || vecinosVivos == 3) {
+            return this; // Permanece viva
+        } else {
+            return new EstadoMuerta(); // Muere por sobrepoblación
         }
-        return this;
     }
-
     @Override
-    public String getRepresentacion() {
-        return REPRESENTACION_VIVA;
+    public char getSimbolo() {
+        return 'X';
     }
 }

@@ -1,6 +1,4 @@
-
 public class EstadoMuerta implements EstadoCelda {
-    protected final String REPRESENTACION_MUERTA = ".";
 
     @Override
     public boolean estaViva() {
@@ -8,15 +6,15 @@ public class EstadoMuerta implements EstadoCelda {
     }
 
     @Override
-    public EstadoCelda proximoEstado(int vecinosVivos) {
+    public EstadoCelda comprobarEstado(int vecinosVivos) {
         if (vecinosVivos == 3) {
             return new EstadoViva();
         }
-        return this;
+        return this; // Permanece muerta
     }
 
     @Override
-    public String getRepresentacion() {
-        return REPRESENTACION_MUERTA;
+    public char getSimbolo() {
+        return '.';
     }
 }

@@ -1,7 +1,7 @@
-
-
 public interface EstadoCelda {
-    boolean estaViva();
-    EstadoCelda proximoEstado(int vecinosVivos);
-    String getRepresentacion();
+    public boolean estaViva();
+
+    public EstadoCelda comprobarEstado(int vecinosVivos);
+
+    char getSimbolo();
 }

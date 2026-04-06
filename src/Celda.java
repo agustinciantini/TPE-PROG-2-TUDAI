@@ -7,20 +7,21 @@ public class Celda {
     }
 
     public boolean estaViva() {
-        return this.estadoActual.estaViva();
+        return estadoActual.estaViva();
     }
 
-    public void calcularProximoEstado(int vecinosVivos) {
-        this.estadoSiguiente = this.estadoActual.proximoEstado(vecinosVivos);
+    public void estadoSiguiente(int vecinosVivos) {
+        this.estadoSiguiente = estadoActual.comprobarEstado(vecinosVivos);
     }
 
-    public boolean actualizarEstado() {
-        boolean cambio = !this.estadoActual.getClass().equals(this.estadoSiguiente.getClass());
-        this.estadoActual = this.estadoSiguiente;
-        return cambio;
-    }
+    public boolean actualizar() {
+		boolean cambio = !estadoActual.equals(estadoSiguiente);
+		estadoActual = estadoSiguiente;
+		return cambio;
+	}
 
-    public String getRepresentacion() {
-        return this.estadoActual.getRepresentacion();
-    }
+    // Para dibujarla en la consola, le pedimos al estado su letra (X, L, E, O)
+	public char getRepresentacion() {
+		return estadoActual.getSimbolo();
+	}
 }
